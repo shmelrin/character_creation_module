@@ -1,7 +1,7 @@
 from random import randint
 
 
-def attack(char_name: int, char_class: str) -> str:
+def attack(char_name: str, char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон противнику'
                 f' равный {5 + randint(3, 5)}')
@@ -14,7 +14,7 @@ def attack(char_name: int, char_class: str) -> str:
     return (f'{char_name} не нанес урон противнику')
 
 
-def defence(char_name: int, char_class: str) -> str:
+def defence(char_name: str, char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -24,7 +24,7 @@ def defence(char_name: int, char_class: str) -> str:
     return (f'{char_name} не блокировал урон')
 
 
-def special(char_name: int, char_class: str) -> str:
+def special(char_name: str, char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} применил специальное умение'
                 f' «Выносливость{80 + 25}»')
@@ -43,9 +43,9 @@ def start_training(char_name: str, char_class: str) -> str:
     if char_class == 'healer':
         print(f'{char_name}, ты Лекарь — чародей, способный исцелять раны.')
     print('Потренируйся управлять своими навыками.')
-    print('''Введи одну из команд: attack — чтобы атаковать противника,
-             defence — чтобы блокировать атаку противника или
-             special — чтобы использовать свою суперсилу.''')
+    print('''"Введи одну из команд: attack — чтобы атаковать противника,
+    defence — чтобы блокировать атаку противника или
+    special — чтобы использовать свою суперсилу.""''')
     print('Если не хочешь тренироваться, введи команду skip.')
     cmd: str = None
     while cmd != 'skip':
@@ -89,7 +89,7 @@ def main() -> str:
           'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
-    char_class = choice_char_class()
+    char_class: str = choice_char_class()
     print(start_training(char_name, char_class))
 
 
